@@ -18,6 +18,13 @@ class ViewController: UIViewController  {
     @IBOutlet weak var tbl: UITableView!
     
     @IBOutlet weak var tobtm: UIView!
+    
+    private let button: UIButton = {
+        let button = UIButton()
+        button.setTitle("Delet", for: .normal)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,18 +34,25 @@ class ViewController: UIViewController  {
     }
 
     @IBAction func pupopButton(_ sender: UIButton) {
+        showAlert()
         
         
-        
-        self.view.addSubview(settingView)
-       self.settingView.center.x =  self.view.center.x
-        
-        self.settingView.center.y = self.view.center.y - (self.view.frame.height / 7.0)
-        //settingView.layer.frame = CGRect(x: 0, y: 0, width: 1, height: 3)
+//        self.view.addSubview(settingView)
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+//       self.settingView.center.x =  self.view.center.x
+//
+//        self.settingView.center.y = self.view.center.y - (self.view.frame.height / 7.0)
+//        //settingView.layer.frame = CGRect(x: 0, y: 0, width: 1, height: 3)
         
         
         
     }
+    
+     @objc private func didTapButton(){
+      
+        
+    }
+    
     
     @IBAction func deleteb(_ sender: UIButton) {
         
@@ -53,6 +67,36 @@ class ViewController: UIViewController  {
 
     }
     
+    func  showAlert() {
+        
+        let alert = UIAlertController (title: "Title", message: "Holle word", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Dis", style: .cancel, handler: { action  in
+            print("Dismiss")
+        }))
+
+        
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action  in
+            print(" Dismiss")
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Edite", style: .destructive, handler: { action  in
+            print(" Dismiss")
+            
+        }))
+        present(alert , animated: true)
+        
+    }
+    
+    
+    
+  
+    
    
 }
+
+
+
+
 
